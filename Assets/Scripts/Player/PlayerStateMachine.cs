@@ -25,7 +25,7 @@ public class PlayerStateMachine : MonoBehaviour
 
     private void Update()
     {
-        if (_currentState != null)
+        if (_currentState == null)
             return;
 
         PlayerState nextState = _currentState.GetNextState();
