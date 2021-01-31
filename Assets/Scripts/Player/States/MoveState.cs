@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MoveState : PlayerState
 {
+    [SerializeField] private StaminaAccumulator _staminaAccumulator;
     [SerializeField] private PlayerInput _playerInput;
     [SerializeField] private float _maxSpeed;
     [SerializeField] private float _speedRatio;
@@ -11,6 +12,7 @@ public class MoveState : PlayerState
     private void OnEnable()
     {
         _playerInput.DirectionChanged += OnDirectionChanged;
+        _staminaAccumulator.StartAccumulate();
     }
 
     private void OnDisable()

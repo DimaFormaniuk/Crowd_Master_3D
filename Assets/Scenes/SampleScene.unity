@@ -2794,6 +2794,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _transitions: []
+  _staminaAccumulator: {fileID: 6667349562243169137}
   _playerInput: {fileID: 6869698162475817815}
   _maxSpeed: 8
   _speedRatio: 0.8
@@ -4262,6 +4263,8 @@ GameObject:
   - component: {fileID: 275068185591328448}
   - component: {fileID: 6667349562243169136}
   - component: {fileID: 275068185591328451}
+  - component: {fileID: 6667349562243169138}
+  - component: {fileID: 6667349562243169137}
   m_Layer: 0
   m_Name: LowpolyNinja
   m_TagString: Untagged
@@ -4282,6 +4285,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _targetState: {fileID: 275068185591328451}
+--- !u!114 &6667349562243169137
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6667349562243169135}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f81e48ab2fd6314c98ffa1e8fb34add, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _accumulatonTime: 1.5
+--- !u!114 &6667349562243169138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6667349562243169135}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9e254d292d945949b6a05615cba768a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _targetState: {fileID: 0}
 --- !u!1 &6829497339029659491
 GameObject:
   m_ObjectHideFlags: 0
