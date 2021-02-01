@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class AttackState :PlayerState
+public class AttackState : PlayerState
 {
     [SerializeField] private StaminaAccumulator _staminaAccumulator;
 
@@ -14,6 +14,7 @@ public class AttackState :PlayerState
 
     private void OnEnable()
     {
+        Animator.SetTrigger("attack");
         _currentAbility = _staminaAccumulator.GetAbility();
         _currentAbility.AbilityEnded += OnAbilityEnded;
 
@@ -44,6 +45,6 @@ public class AttackState :PlayerState
 
     private void Update()
     {
-        
+
     }
 }

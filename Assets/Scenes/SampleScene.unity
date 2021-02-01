@@ -2935,10 +2935,10 @@ Animator:
   m_GameObject: {fileID: 6667349562243169135}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: bdb20905bd9f8954c91cafa0716bd248, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 221f70c7d2f53014fbee6038e40d657c, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
@@ -4392,6 +4392,7 @@ GameObject:
   - component: {fileID: 275068185591328451}
   - component: {fileID: 6667349562243169139}
   - component: {fileID: 6667349562243169138}
+  - component: {fileID: 6667349562243169140}
   - component: {fileID: 6667349562243169137}
   m_Layer: 0
   m_Name: LowpolyNinja
@@ -4453,8 +4454,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3221c7458d497ae45bb580ec4a404e1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _transitions: []
+  _transitions:
+  - {fileID: 6667349562243169136}
+  - {fileID: 6667349562243169140}
   _staminaAccumulator: {fileID: 6667349562243169137}
+--- !u!114 &6667349562243169140
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6667349562243169135}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21f6a3f005fd8004b9b77e5ebc3f283b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _targetState: {fileID: 275068185591328448}
+  _attackState: {fileID: 6667349562243169139}
 --- !u!1 &6829497339029659491
 GameObject:
   m_ObjectHideFlags: 0
