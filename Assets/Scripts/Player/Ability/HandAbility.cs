@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+[CreateAssetMenu(fileName = "New Hand Ability", menuName = "Player/Abilities/Hand", order = 51)]
 public class HandAbility : Ability
 {
     [SerializeField] private float _attackForce;
@@ -20,12 +21,16 @@ public class HandAbility : Ability
 
         _state = attack;
 
+        _coroutine = _state.StartCoroutine(Attack(_state));
         _state.CollisionDetected += OnPlayerAttack;
     }
 
-    private void OnPlayerAttack()
+    private void OnPlayerAttack(IDamageable damageable)
     {
+        if (damageable.ApplyDamage(_state.Rigidbody, _attackForce) == false)
+            return;
 
+        _state.Rigidbody.velocity /= 2f;
     }
 
     private IEnumerator Attack(AttackState state)
