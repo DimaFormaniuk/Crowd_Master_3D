@@ -2,10 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class IdleState : State
+public class BrokenState : State
 {
-    private void Update()
-    {
-        
-    }
+
 }
