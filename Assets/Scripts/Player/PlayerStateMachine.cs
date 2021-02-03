@@ -44,4 +44,9 @@ public class PlayerStateMachine : MonoBehaviour
         if (_currentState != null)
             _currentState.Enter(_rigidbody, _animator);
     }
+
+    public void ApplyDamage(float damage)
+    {
+        Debug.Log("Attacks");
+    }
 }
