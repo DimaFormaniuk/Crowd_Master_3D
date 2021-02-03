@@ -15404,6 +15404,7 @@ GameObject:
   - component: {fileID: 6667349562243169138}
   - component: {fileID: 6667349562243169140}
   - component: {fileID: 6667349562243169137}
+  - component: {fileID: 6667349562243169141}
   m_Layer: 0
   m_Name: LowpolyNinja
   m_TagString: Untagged
@@ -15482,6 +15483,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _targetState: {fileID: 275068185591328448}
   _attackState: {fileID: 6667349562243169139}
+--- !u!114 &6667349562243169141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6667349562243169135}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70a996f668da81b4882ce90c808398ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _health: 20
 --- !u!1 &6829497339029659491
 GameObject:
   m_ObjectHideFlags: 0
