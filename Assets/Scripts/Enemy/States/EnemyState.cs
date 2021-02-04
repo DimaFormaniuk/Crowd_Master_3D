@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyState : MonoBehaviour
+public abstract class EnemyState : MonoBehaviour
 {
     [SerializeField] private EnemyTransition[] _transitions;
 
@@ -10,7 +10,7 @@ public class EnemyState : MonoBehaviour
     public PlayerStateMachine Player { get; private set; }
     public Animator Animator { get; private set; }
 
-    public void Enter(Rigidbody rigidbody, Animator animator,PlayerStateMachine player)
+    public void Enter(Rigidbody rigidbody, Animator animator, PlayerStateMachine player)
     {
         if (enabled == false)
         {

@@ -3,50 +3,43 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-[RequireComponent(typeof(Rigidbody), typeof(Animator))]
-public class EnemyStateMachine : MonoBehaviour, IDamageable
+public class EnemyStateMachine : BaseStateMachine, IDamageable
 {
     [SerializeField] private EnemyState _firstState;
     [SerializeField] private BrokenState _brokenState;
-    [SerializeField] private HealthContainer _healthContainer;
 
     private EnemyState _currentState;
-    private Rigidbody _rigidbody;
-    private Animator _animator;
     private float _minDamage;
 
     public PlayerStateMachine Player { get; private set; }
 
     public event UnityAction<EnemyStateMachine> Died;
 
-    private void OnEnable()
-    {
-        _healthContainer.Died += OnEnemyDie;
-    }
-
-    private void OnDisable()
-    {
-        _healthContainer.Died -= OnEnemyDie;
-    }
-
-    private void OnEnemyDie()
+    protected override void OnDied()
     {
         enabled = false;
-        _rigidbody.constraints = RigidbodyConstraints.None;
+        Rigidbody.constraints = RigidbodyConstraints.None;
         Died?.Invoke(this);
+    }
+
+    public override void Enable()
+    {
+    }
+
+    public override void Disable()
+    {
     }
 
     private void Awake()
     {
-        _rigidbody = GetComponent<Rigidbody>();
-        _animator = GetComponent<Animator>();
+        Init();
         Player = FindObjectOfType<PlayerStateMachine>();
     }
 
     private void Start()
     {
         _currentState = _firstState;
-        _currentState.Enter(_rigidbody, _animator, Player);
+        _currentState.Enter(Rigidbody, Animator, Player);
     }
 
     private void Update()
@@ -68,14 +61,14 @@ public class EnemyStateMachine : MonoBehaviour, IDamageable
         _currentState = nextState;
 
         if (_currentState != null)
-            _currentState.Enter(_rigidbody, _animator, Player);
+            _currentState.Enter(Rigidbody, Animator, Player);
     }
 
     public bool ApplyDamage(Rigidbody rigidbody, float force)
     {
         if (force > _minDamage && _currentState != _brokenState)
         {
-            _healthContainer.TakeDamage((int)force);
+            Health.TakeDamage((int)force);
             Transit(_brokenState);
             _brokenState.ApplyDamage(rigidbody, force);
 

@@ -16,6 +16,8 @@ public class HandAbility : Ability
 
     public override void UseAbility(AttackState attack)
     {
+        attack.Animator.SetTrigger("attack");
+
         if (_coroutine != null)
             Reset();
 
